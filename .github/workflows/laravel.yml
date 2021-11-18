@@ -37,8 +37,9 @@ jobs:
         run: vendor/bin/phpunit
 
   build:
-    if: ${{ always() }}
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [ job ]
 
     steps:
 
