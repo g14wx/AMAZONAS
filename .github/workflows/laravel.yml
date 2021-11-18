@@ -79,7 +79,6 @@ jobs:
     if: ${{ always() && (needs.laravel-tests.result=='failure') }}
     needs: [ laravel-tests ]
     steps:
-      - name: SET AN ISSUE ABOUT THIS PROBLEM
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
