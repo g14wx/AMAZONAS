@@ -72,26 +72,26 @@ jobs:
           heroku_app_name: "amazonas-latam"
           heroku_email: "goth14wx@gmail.com"
 
-  run-if-fail-lavel-test:
+  run-if-fail-laravel-test:
     runs-on: ubuntu-latest
     if: ${{ always() && (needs.laravel-tests.result=='failure') }}
     needs: [ laravel-tests ]
     steps:
       - name: SET AN ISSUE ABOUT THIS PROBLEM
-      run: |
+        run: |
 
-        curl --request POST \
+          curl --request POST \
 
-        --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
 
-        --header 'authorization: Bearer ${{ secrets.PAT_GITHUB_TOKEN }}' \
+          --header 'authorization: Bearer ${{ secrets.PAT_GITHUB_TOKEN }}' \
 
-        --header 'content-type: application/json' \
+          --header 'content-type: application/json' \
 
-        --data '{
+          --data '{
 
-          "title": "Issue created due to workflow fialure: ${{ github.run_id }}",
+            "title": "Issue created due to workflow fialure: ${{ github.run_id }}",
 
-          "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
 
-          }'
+            }'
