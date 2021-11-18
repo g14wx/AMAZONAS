@@ -1,3 +1,5 @@
-title: Test have failed {{ date | date('dddd, MMMM Do') }}
+---
+title: Test failed, triggered by {{ tools.context.actor }}
 assignees: JasonEtco, matchai
 labels: bug, enhancement
+---
