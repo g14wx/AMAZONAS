@@ -64,7 +64,6 @@ jobs:
         run: npm run production
 
       - uses: actions/checkout@v2
-
       if: always()
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
