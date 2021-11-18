@@ -1,6 +1,7 @@
 <?php
 $url = parse_url('mysql://bff38308c187e3:bf53af33@us-cdbr-east-04.cleardb.com/heroku_48a4b66a27fb5f7?reconnect=true');
 
+$hola = $da;
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
