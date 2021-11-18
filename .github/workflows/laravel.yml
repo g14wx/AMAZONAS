@@ -80,7 +80,9 @@ jobs:
     needs: [ laravel-tests ]
     steps:
       - name: SET AN ISSUE ABOUT THIS PROBLEM
-      - uses: actions/checkout@v2
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+        id: create-issue
+      - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
+      - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
