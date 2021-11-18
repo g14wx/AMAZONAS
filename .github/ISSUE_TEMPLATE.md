@@ -1,5 +1,5 @@
 ---
-title: Test failed, triggered by {{ tools.context.actor }}
+title: Test failed
 assignees: JasonEtco, matchai
 labels: bug, enhancement
 ---
