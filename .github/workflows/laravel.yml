@@ -68,7 +68,6 @@ jobs:
         run: npm run production
       - name: Mergin changes from remote heroku
       - run: |
-          git add .
           git reset --hard HEAD
           git pull heroku main
 
