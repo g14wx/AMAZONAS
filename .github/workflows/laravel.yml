@@ -66,11 +66,6 @@ jobs:
       - name: Compile assets for production
 
         run: npm run production
-      - name: Mergin changes from remote heroku
-      - run: |
-          git add .
-          git reset --hard HEAD
-          git pull heroku main
 
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
