@@ -3,7 +3,6 @@ permissions:
   contents: read
   issues: write
 on:
-  push:
   pull_request:
     branches: [ '*release*' ]
 
