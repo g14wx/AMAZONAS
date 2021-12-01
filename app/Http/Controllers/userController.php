@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
-     public function getUser() :void
+     public function getUser() : Response
     {
+        return response()->json(["msg"=>"hello"]);
     }
 }
