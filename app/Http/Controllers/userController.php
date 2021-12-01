@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 
 class userController extends Controller
 {
-     public function getGreeting() :JsonResponse
+     public function getUser() :void
     {
-      return response()->json(["msg"=>"Hello"]);
     }
 }
