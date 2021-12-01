@@ -45,27 +45,27 @@ jobs:
 
     steps:
 
-      - name: Checkout
+#      - name: Checkout
 
-        uses: actions/checkout@v2
+#        uses: actions/checkout@v2
 
-      - name: Setup Node.js
+#      - name: Setup Node.js
 
-        uses: actions/setup-node@v2-beta
+#        uses: actions/setup-node@v2-beta
 
-        with:
+#        with:
 
-          node-version: '12'
+#          node-version: '12'
 
-          check-latest: true
+#          check-latest: true
 
-      - name: Install NPM dependencies
+#      - name: Install NPM dependencies
 
-        run: npm install
+#        run: npm install
 
-      - name: Compile assets for production
+#      - name: Compile assets for production
 
-        run: npm run production
+#        run: npm run production
 
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
