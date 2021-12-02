@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class userController extends Controller
 {
-     public function getGreeting() :JsonResponse
+     public function greeting() :JsonResponse
     {
       return response()->json(["msg"=>"Hello"]);
     }
