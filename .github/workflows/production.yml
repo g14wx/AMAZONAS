@@ -1,4 +1,4 @@
-name: Laravel
+name: production
 permissions:
   contents: read
   issues: write
