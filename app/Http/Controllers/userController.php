@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -11,5 +12,10 @@ class userController extends Controller
      public function greeting() :JsonResponse
     {
       return response()->json(["msg"=>"Hello"]);
+    }
+
+    public function hour() :JsonResponse
+    {
+        return response()->json(["hour"=>Carbon::today()->toString()]);
     }
 }
