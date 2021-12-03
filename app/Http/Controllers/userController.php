@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Psy\Util\Json;
 
 class userController extends Controller
 {
@@ -17,5 +18,20 @@ class userController extends Controller
     public function hour() :JsonResponse
     {
         return response()->json(["hour"=>Carbon::today()->toString()]);
+    }
+
+    public function users() : JsonResponse
+    {
+        $users= User::all();
+
+        if ($users != null)
+        {
+            return response()->json($users);
+        }else{
+            return response()->json([
+                "msg"=>"Empty"
+            ]);
+        }
+
     }
 }
