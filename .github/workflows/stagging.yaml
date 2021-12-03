@@ -71,11 +71,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "amazonas-latam-stagging"
           heroku_email: "goth14wx@gmail.com"
-      - run: |
-          heroku ps:exec
-          cp .env.example .env
-          php artisan key:generate
-          exit
 
 # run-if-fail-laravel-test:
 #   runs-on: ubuntu-latest
