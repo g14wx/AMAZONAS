@@ -35,6 +35,7 @@ class userController extends Controller
 
     }
 
+
     public function allUsers() : JsonResponse
     {
         $users= User::all();
@@ -49,4 +50,5 @@ class userController extends Controller
         }
 
     }
+
 }
