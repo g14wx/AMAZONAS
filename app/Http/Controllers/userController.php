@@ -34,4 +34,19 @@ class userController extends Controller
         }
 
     }
+
+    public function allUsers() : JsonResponse
+    {
+        $users= User::all();
+
+        if ($users != null)
+        {
+            return response()->json($users);
+        }else{
+            return response()->json([
+                "msg"=>"Empty"
+            ]);
+        }
+
+    }
 }
