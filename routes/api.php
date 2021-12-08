@@ -27,8 +27,6 @@ Route::get("/greeting",[UserController::class,"greeting"]);
 
 Route::get("/hour",[UserController::class,"hour"]);
 
-Route::get("/users",[UserController::class,"users"]);
-
-Route::get("/allusers",[UserController::class,"allUsers"]);
+Route::get("/users",[UserController::class,"allUsers"]);
 
 
