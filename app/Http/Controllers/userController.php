@@ -19,4 +19,19 @@ class userController extends Controller
     {
         return response()->json(["hour"=>Carbon::today()->toString()]);
     }
+
+    public function allUsers() : JsonResponse
+    {
+        $users= User::all();
+
+        if ($users != null)
+        {
+            return response()->json($users);
+        }else{
+            return response()->json([
+                "msg"=>"Empty"
+            ]);
+        }
+
+    }
 }
