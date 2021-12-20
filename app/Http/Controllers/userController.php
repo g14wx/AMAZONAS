@@ -15,6 +15,11 @@ class userController extends Controller
       return response()->json(["msg"=>"Hello"]);
     }
 
+     public function getAMessage() : JsonResponse
+     {
+     	return response()->json(["msg"=>"hey this is a new message"]);
+     }
+
      public function getAnotherGreeting() : JsonResponse
     {
 	    return response()->json(["msg"=>"hello"]);
