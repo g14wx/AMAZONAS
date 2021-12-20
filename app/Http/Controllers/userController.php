@@ -10,9 +10,8 @@ use Psy\Util\Json;
 
 class userController extends Controller
 {
-    public function getHelloMsg() : JsonResponse
-    {
-        return response()->json(["msg"=>"welcome to this new message"]);
+    public function getMessage():JsonResponse{
+        return response()->json(["msg"=>"hey new message"]);
     }
     public function hour() :JsonResponse
     {
