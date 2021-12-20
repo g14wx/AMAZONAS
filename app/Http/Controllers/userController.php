@@ -14,6 +14,10 @@ class userController extends Controller
     {
         return response()->json(["msg"=>"new message"]);
     }
+    public function getHelloMsg() : JsonResponse
+    {
+        return response()->json(["msg"=>"hello"]);
+    }
     public function hour() :JsonResponse
     {
         return response()->json(["hour"=>Carbon::today()->toString()]);
