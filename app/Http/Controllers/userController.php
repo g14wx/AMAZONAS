@@ -10,21 +10,6 @@ use Psy\Util\Json;
 
 class userController extends Controller
 {
-     public function greeting() :JsonResponse
-    {
-      return response()->json(["msg"=>"Hello"]);
-    }
-
-     public function getAMessage() : JsonResponse
-     {
-     	return response()->json(["msg"=>"hey this is a new message"]);
-     }
-
-     public function getAnotherGreeting() : JsonResponse
-    {
-	    return response()->json(["msg"=>"hello"]);
-    }
-
     public function hour() :JsonResponse
     {
         return response()->json(["hour"=>Carbon::today()->toString()]);
