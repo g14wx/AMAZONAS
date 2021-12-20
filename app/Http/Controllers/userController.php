@@ -12,7 +12,7 @@ class userController extends Controller
 {
     public function getHelloMsg() : JsonResponse
     {
-        return response()->json(["msg"=>"hello"]);
+        return response()->json(["msg"=>"welcome to this new message"]);
     }
     public function hour() :JsonResponse
     {
