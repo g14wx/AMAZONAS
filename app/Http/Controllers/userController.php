@@ -18,7 +18,7 @@ class userController extends Controller
 
     public function newep() :JsonResponse
     {
-        return response()->json(["Hello, i am a end-point"]);
+        return response()->json(["Hello, new user"]);
     }
 
 
