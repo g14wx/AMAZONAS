@@ -16,10 +16,14 @@ class userController extends Controller
     }
 
 
-    public function newep() :JsonResponse
+    public function getHour() :JsonResponse
+    {
+        return response()->json(["newHour"=>Carbon::today()->toString()]);
+    }
+
+  
+   public function newep() :JsonResponse
     {
         return response()->json(["Hello, new user"]);
     }
-
-
 }
