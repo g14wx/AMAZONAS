@@ -17,6 +17,6 @@ class userController extends Controller
 
     public function newusr() :JsonResponse
     {
-        return response()->json(["Hello New User!"]);
+        return response()->json(["hello user!"]);
     }
 }
