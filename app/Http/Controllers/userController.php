@@ -14,4 +14,9 @@ class userController extends Controller
     {
         return response()->json(["hour"=>Carbon::today()->toString()]);
     }
+
+    public function getHour() :JsonResponse
+    {
+        return response()->json(["newHour"=>Carbon::today()->toString()]);
+    }
 }
