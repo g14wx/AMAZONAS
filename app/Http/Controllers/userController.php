@@ -10,4 +10,8 @@ use Psy\Util\Json;
 
 class userController extends Controller
 {
+    public function hour() :JsonResponse
+    {
+        return response()->json(["hour"=>Carbon::today()->toString()]);
+    }
 }
