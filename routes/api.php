@@ -26,3 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/greeting",[UserController::class,"greeting"]);
 
 Route::get("/hour",[UserController::class,"hour"]);
+
+Route::get("/textMessageCampaignHealth",[UserController::class,"textMessageCampaignHealth"]);
+Route::get("/emailCampaignHealth",[UserController::class,"emailCampaignHealth"]);
