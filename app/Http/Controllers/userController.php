@@ -19,7 +19,7 @@ class userController extends Controller
         return response()->json(["hello user!"]);
     }
 
-    public function textMessageCampaignHealth()
+    public function textMessageCampaignHealth(): JsonResponse
     {
         $titles = ["Total Campaigns", "Total Messages", "Delivery Rate", "CTR", "Opt-out Rate"];
         $titlesForSeries = ["Total Messages", "Delivery Rate", "CTR", "Opt-out Rate"];
@@ -30,7 +30,7 @@ class userController extends Controller
         return response()->json($response);
     }
 
-    public function emailCampaignHealth()
+    public function emailCampaignHealth(): JsonResponse
     {
         $titles = ["Total Campaigns", "Total Emails", "Delivery Rate", "Open Rate", "CTR", "Unsubscribe Rate"];
         $titlesForSeries = ["Total Emails", "Delivery Rate", "Open Rate", "CTR", "Unsubscribe Rate"];
@@ -46,9 +46,10 @@ class userController extends Controller
 
         $collection = Collection::make($titles);
         $faker = Faker::create();
-
         $d1 = date_create(date('Y').'-'.date('m').'-01'); //current month/year
+        // @phpstan-ignore-next-line
         $d2 = date_create($d1->format('Y-m-t')); //get last date of the month
+        // @phpstan-ignore-next-line
         $daysObject = date_diff($d1,$d2);
         $days = Collection::range(0,$daysObject->days+1);
         unset($titles[0]);
