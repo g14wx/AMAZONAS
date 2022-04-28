@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Faker\Factory as Faker;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
@@ -45,7 +44,6 @@ class userController extends Controller
     {
 
         $collection = Collection::make($titles);
-        $faker = Faker::create();
         $d1 = date_create(date('Y').'-'.date('m').'-01'); //current month/year
         // @phpstan-ignore-next-line
         $d2 = date_create($d1->format('Y-m-t')); //get last date of the month
@@ -53,28 +51,28 @@ class userController extends Controller
         $daysObject = date_diff($d1,$d2);
         $days = Collection::range(0,$daysObject->days+1);
         unset($titles[0]);
-        $series = $collection->map(function ($title) use($days, $faker) {
+        $series = $collection->map(function ($title) use($days) {
             return [
                 "title" => $title,
-                "data" => $days->map(function ($day) use ($faker) {
+                "data" => $days->map(function ($day) {
                     return [
                         "numberOfDay" => $day,
-                        "value" => $faker->numberBetween(1,999999)
+                        "value" => mt_rand(1,999999)
                     ];
                 })->toArray(),
-                "subInformation" => $days->map(function ($day) use ($faker, $title) {
+                "subInformation" => $days->map(function ($day) use ($title) {
                 return [
                     "title" => $title,
                     "date" => $day."-".Carbon::now()->format("m-Y"),
-                    "monthInformation" => Collection::make([0,1,2])->map(function ($number) use ($faker){
+                    "monthInformation" => Collection::make([0,1,2])->map(function ($number) {
                         $monthInformation = [
-                            "title" => $faker->name,
-                            "value" => $faker->numberBetween(1,999999),
-                            "isPercentageValue" => ($faker->numberBetween(1,2) == 1)
+                            "title" => "some title",
+                            "value" => mt_rand(1,999999),
+                            "isPercentageValue" => (mt_rand(1,2) == 1)
                         ];
                         if($number == 2) {
-                            $monthInformation["isPositivePercentage"] = ($faker->numberBetween(1,2) == 1);
-                            $monthInformation["percentage"] = $faker->numberBetween(1,100);
+                            $monthInformation["isPositivePercentage"] = (mt_rand(1, 2) == 1);
+                            $monthInformation["percentage"] = mt_rand(1,100);
                         }
                         return $monthInformation;
                     })->toArray()
@@ -88,14 +86,14 @@ class userController extends Controller
 
     private function generateCards(array $titles): array
     {
-        $faker = Faker::create();
+
         $collection = Collection::make($titles);
-        $cards = $collection->map(function ($title) use ($faker) {
+        $cards = $collection->map(function ($title) {
             return [
                 "title" => $title,
-                "value" => $faker->numberBetween(1,999999),
-                "percentage" => $faker->numberBetween(1,100)."%",
-                "isPositivePercentage" => ($faker->numberBetween(1,2) == 1)
+                "value" => mt_rand(1, 999999),
+                "percentage" => mt_rand(1, 100)."%",
+                "isPositivePercentage" => (mt_rand(1, 2) == 1)
             ];
         });
         return $cards->toArray();
