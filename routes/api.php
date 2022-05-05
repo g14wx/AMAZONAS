@@ -29,3 +29,5 @@ Route::get("/hour",[UserController::class,"hour"]);
 
 Route::get("/textMessageCampaignHealth",[UserController::class,"textMessageCampaignHealth"]);
 Route::get("/emailCampaignHealth",[UserController::class,"emailCampaignHealth"]);
+Route::get("/salesVsCampaign",[UserController::class,"salesVsCampaign"]);
+Route::get("/subscriberGrowth",[UserController::class,"subscriberGrowth"]);

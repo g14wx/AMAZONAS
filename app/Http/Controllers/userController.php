@@ -18,6 +18,31 @@ class userController extends Controller
         return response()->json(["hello user!"]);
     }
 
+    public function subscriberGrowth(): JsonResponse {
+        $titles = ["Total Active Subscribers", "Total Opt-ins", "Total Opt-outs"];
+        $titlesForSeries = ["Subscribers"];
+        $response = [
+            "cards" => $this->generateCards($titles),
+            "series" => $this->generateSeries($titlesForSeries, true)[0]
+        ];
+        return response()->json($response);
+    }
+
+    public function salesVsCampaign(): JsonResponse {
+        $titles = ["Total Sales connected to campaigns", "Average daily sales"];
+        $titlesForSeries = ["Sales", "Text Campaigns", "Email Campaigns"];
+        $response = [
+            "informativeCards" => Collection::make($this->generateCards($titles))->map(function ($informativeCard){
+                return [
+                    "title" => $informativeCard["title"],
+                    "data" => $informativeCard
+                ];
+            })->toArray(),
+            "series" => $this->generateSeries($titlesForSeries, true)
+        ];
+        return response()->json($response);
+    }
+
     public function textMessageCampaignHealth(): JsonResponse
     {
         $titles = ["Total Campaigns", "Total Messages", "Delivery Rate", "CTR", "Opt-out Rate"];
@@ -40,7 +65,7 @@ class userController extends Controller
         return response()->json($response);
     }
 
-    private function generateSeries(array $titles): array
+    private function generateSeries(array $titles, bool $setDataToNumbers = false): array
     {
 
         $collection = Collection::make($titles);
@@ -51,26 +76,26 @@ class userController extends Controller
         $daysObject = date_diff($d1,$d2);
         $days = Collection::range(0,$daysObject->days+1);
         unset($titles[0]);
-        $series = $collection->map(function ($title) use($days) {
+        $series = $collection->map(function ($title) use($days, $setDataToNumbers) {
             return [
                 "title" => $title,
-                "data" => $days->map(function ($day) {
-                    return [
+                "data" => $days->map(function ($day) use($setDataToNumbers) {
+                    return $setDataToNumbers ? mt_rand(1,999999) : [
                         "numberOfDay" => $day,
                         "value" => mt_rand(1,999999)
                     ];
                 })->toArray(),
-                "subInformation" => $days->map(function ($day) use ($title) {
+                "subInformation" => $days->map(function ($day) use ($title, $setDataToNumbers) {
                 return [
                     "title" => $title,
                     "date" => $day."-".Carbon::now()->format("m-Y"),
-                    "monthInformation" => Collection::make([0,1,2])->map(function ($number) {
+                    "monthInformation" => Collection::make([0,1,2])->map(function ($number) use($setDataToNumbers) {
                         $monthInformation = [
                             "title" => "some title",
                             "value" => mt_rand(1,999999),
                             "isPercentageValue" => (mt_rand(1,2) == 1)
                         ];
-                        if($number == 2) {
+                        if($number == 2 || $setDataToNumbers) {
                             $monthInformation["isPositivePercentage"] = (mt_rand(1, 2) == 1);
                             $monthInformation["percentage"] = mt_rand(1,100);
                         }
@@ -93,7 +118,8 @@ class userController extends Controller
                 "title" => $title,
                 "value" => mt_rand(1, 999999),
                 "percentage" => mt_rand(1, 100)."%",
-                "isPositivePercentage" => (mt_rand(1, 2) == 1)
+                "isPositivePercentage" => (mt_rand(1, 2) == 1),
+                "isValuePercentage" => false
             ];
         });
         return $cards->toArray();
