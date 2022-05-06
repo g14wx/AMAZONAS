@@ -95,7 +95,7 @@ class userController extends Controller
                             "value" => mt_rand(1,999999),
                             "isPercentageValue" => (mt_rand(1,2) == 1)
                         ];
-                        if($number == 2 || $setDataToNumbers) {
+                        if($number == 1 || $setDataToNumbers) {
                             $monthInformation["isPositivePercentage"] = (mt_rand(1, 2) == 1);
                             $monthInformation["percentage"] = mt_rand(1,100);
                         }
