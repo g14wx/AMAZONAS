@@ -89,7 +89,7 @@ class userController extends Controller
                 return [
                     "title" => $title,
                     "date" => $day."-".Carbon::now()->format("m-Y"),
-                    "monthInformation" => Collection::make([0,1,2])->map(function ($number) use($setDataToNumbers) {
+                    "monthInformation" => Collection::make( $setDataToNumbers ? [0,1,2] : [0,1])->map(function ($number) use($setDataToNumbers) {
                         $monthInformation = [
                             "title" => "some title",
                             "value" => mt_rand(1,999999),
