@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 
-class OrdersController extends Controller
+class ordersController extends Controller
 {
 
     public function order(): JsonResponse

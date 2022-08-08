@@ -4,7 +4,7 @@ if (App::environment('production')) {
     URL::forceScheme('https');
 }
 
-use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\ordersController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
