@@ -31,3 +31,4 @@ Route::get("/textMessageCampaignHealth",[UserController::class,"textMessageCampa
 Route::get("/emailCampaignHealth",[UserController::class,"emailCampaignHealth"]);
 Route::get("/salesVsCampaign",[UserController::class,"salesVsCampaign"]);
 Route::get("/subscriberGrowth",[UserController::class,"subscriberGrowth"]);
+Route::get("/orderDetail", [\App\Http\Controllers\OrdersController::class,'order']);
