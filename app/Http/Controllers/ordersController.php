@@ -83,6 +83,7 @@ class ordersController extends Controller
                     ]
                 ]
             ],
+            "orderId" => 1210,
             "shippingAddress" => "new order with comment",
             "indications" => "new one indications",
             "paymentOption" => "Cash",
