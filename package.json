@@ -8,7 +8,9 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "heroku-postbuild": "npm run prod"
+        "heroku-postbuild": "npm run prod",
+        "docker:up": "docker-compose up -d",
+        "docker:down": "docker-compose down"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.10.0",
