@@ -18,14 +18,14 @@ class userController extends Controller
         return response()->json(["hello user!"]);
     }
 
-    public function topAndTransaction()
+    public function topAndTransaction(): JsonResponse
     {
         $response = [
             "top_selling_categories",
             "top_selling_products",
             "transaction_amount_per_visit"
         ];
-        return $response;
+        return response()->json($response);
     }
 
     public function subscriberGrowth(): JsonResponse
