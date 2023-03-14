@@ -69,7 +69,7 @@ jobs:
       - uses: yonycalsin/deploy-simple-to-heroku@v2.0.1
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "amazonas-latam"
+          heroku_app_name: "amazonas-latam-new"
           heroku_email: "goth14wx@gmail.com"
 
   run-if-fail-laravel-test:
