@@ -4,7 +4,7 @@ permissions:
   issues: write
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   laravel-tests:
