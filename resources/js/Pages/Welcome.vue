@@ -27,7 +27,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <div class="p-6">
                         <div class="flex items-center">
-                          <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation from shift14wx</a></div>
+                          <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation from the admin</a></div>
                         </div>
 
                         <div class="ml-12">
