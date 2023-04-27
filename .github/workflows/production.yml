@@ -4,7 +4,7 @@ permissions:
   issues: write
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   laravel-tests:
@@ -71,7 +71,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "amazonas-latam-new"
           heroku_email: "goth14wx@gmail.com"
-          branch: "main"
 
   run-if-fail-laravel-test:
     runs-on: ubuntu-latest
